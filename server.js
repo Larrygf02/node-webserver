@@ -5,6 +5,9 @@ const app = express()
 //Importando helpers
 require('./hbs/helpers')
 
+// configurando el puerto para subirlo a heroku
+const port = process.env.PORT || 3000;
+
 app.use( express.static( __dirname + '/public'))
 
 //Para usar handlebars
@@ -25,6 +28,6 @@ app.get('/about', function(req,res) {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Escuchando puerto 3000');
+app.listen(port, () => {
+    console.log(`Escuchando puerto ${port}`);
 })
